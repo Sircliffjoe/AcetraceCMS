@@ -1,0 +1,163 @@
+<% provide( :title, @lawfirm.name) %>
+
+  <h1 class="title1">Profile Info</h1>
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">  <%= @lawfirm.name.capitalize %></h3> </div> <div class="panel-body">
+
+<div class="col-md-4 widget widget1 panel-grids">
+          
+
+ <div class="row">
+  
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+       
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+           <div class="profile-userpic">
+           <%if @lawfirm.logos?%>
+       <%= image_tag @lawfirm.logos_url, class:"img-circle" %>
+
+
+        <%else%>
+
+        <img class:"img-circle" src="../assets/fallback/logo.png" />
+        <%end%>
+
+
+        </div>
+             <%= @lawfirm.name %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%= @lawfirm.type_of_organization %>
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#">
+              <i class="fa fa-home"></i>
+               <%= @lawfirm.address %> </a>
+            </li>
+            
+            <li>
+              <a href="#" target="_blank">
+              <i class="fa fa-ok"></i>
+              <%= @lawfirm.email %> </a>
+            </li>
+            <li>
+              <a href="#">
+              <i class="fa fa-flag"></i>
+              Enquiries </a>
+            </li>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+
+    </div>
+   
+    </div>
+    <div class="col-md-6 widget widget1">
+            <div class="r3_counter_box">
+            <div class="profile-content">
+         <table class="table">
+
+        <tbody>
+
+        <tr>
+ <div style="font-size:16px;">
+                      <tr>
+                        <td>Company Name:</td>
+                        <td><%= @lawfirm.name %></td>
+                      </tr>
+                      
+                      <tr>
+                       <tr>
+                        <td>Subscription Status:</td>
+                        <td><%= @lawfirm.status %></td>
+                      </tr>
+                      <tr>
+                        <td>Type of Organization:</td>
+                        <td><%= @lawfirm.type_of_organization %></td>
+                      </tr>
+                      <tr>
+                        <td>Office Address:</td>
+                        <td><%= @lawfirm.address %></td>
+                      </tr>
+                   
+                         <tr>
+                             <tr>
+                        <td>Telephone:</td>
+                        <td> <%= @lawfirm.phone_number %></td>
+                      </tr>
+                        <tr>
+                        <td>State:</td>
+                        <td><%= @lawfirm.state %></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                      </tr>
+                        <td>City:</td>
+                        <td><%= @lawfirm.city %></td>
+                           
+                      </tr>
+                      </tr>
+                        <td>Status:</td>
+                        <td><%= @lawfirm.status %></td>
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+</div>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<%if current_user.sadmin?%>
+
+<% if @lawfirm.status == "inactive"%>
+<%= link_to 'Activate Lawfirm', activate_lawfirm_lawfirm_path(@lawfirm.id), class:'btn btn-success' %> 
+<%else%>
+
+<%= link_to 'Deactivate Lawfirm', deactivate_lawfirm_lawfirm_path(@lawfirm.id), class:'btn btn-danger' %> 
+<%end%>
+
+<%end%>
+
+
+<%= link_to 'Edit', edit_lawfirm_path(@lawfirm) %> |
+
+  <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+
+            </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+ 
+

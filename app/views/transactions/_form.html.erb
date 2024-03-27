@@ -1,0 +1,62 @@
+<%= form_with(model: subscription, local: true) do |form| %>
+  <% if subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :plan_code %>
+    <%= form.text_field :plan_code, id: :subscription_plan_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, id: :subscription_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lawfirm_id %>
+    <%= form.text_field :lawfirm_id, id: :subscription_lawfirm_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expires_on %>
+    <%= form.date_select :expires_on, id: :subscription_expires_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :subscription_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reference %>
+    <%= form.text_field :reference, id: :subscription_reference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_code %>
+    <%= form.text_field :customer_code, id: :subscription_customer_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.number_field :customer_id, id: :subscription_customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paid_at %>
+    <%= form.text_field :paid_at, id: :subscription_paid_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+Hello, <%= @user.first_name %>
+ <%if @user.type == "Admin" %>
+      Welcome to Acetrace-CMS you have just created an Admin's account  in Acetrace-CMS.
+      Please Make Sure you set up your lawfirm to continue to use our platform.
+      We are glad to have you.
+
+
+      Acetrace-CMS Team 
+ 
+
+    <%else%>
+      Welcome to Acetrace-CMS your <%= @user.type %>'s account  has been created in <%= @user.lawfirm.name%> Lawfirm.
+      We are glad to have you in our platform. 
+
+
+
+      Acetrace-CMS Team 
+
+  <%end%>
+  

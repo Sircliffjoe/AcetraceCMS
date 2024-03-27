@@ -1,0 +1,22 @@
+
+
+<%if current_user.sadmin?%>
+     <%= render 'superadmin' %>
+
+<%elsif current_user.admin?%>
+
+<%= render partial: 'admin' %>
+
+<%elsif current_user.attorney?%>
+
+<%= render partial: 'attorney' %>
+
+<%elsif current_user.adminassistant?%>
+
+<%= render partial: 'adminassistant' %>
+
+<%elsif current_user.client?%>
+
+<%= render partial: 'client' %>
+
+<%end%>

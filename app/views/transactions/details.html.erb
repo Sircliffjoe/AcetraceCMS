@@ -1,0 +1,93 @@
+  <% provide( :title, "Transaction History") %>
+
+    <div class="forms">
+        
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+            <div class="form-title">
+              <h4>Payment Reciept</h4>
+            </div>
+
+ <div class="form-body">
+
+
+<div class="card-body card-body">
+              <div class="card-header">
+            <%if current_user.sadmin?%>
+             <h5 class="card-title"><strong>Status - <%= @res.status %></strong></h5>
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7"></div>
+                </div>
+              </div>
+              <%else%>
+                <h5 class="card-title"><strong>Status - <%= @res['status'] %></strong></h5>
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Lawfirm Email - <%= current_user.lawfirm.email %></div>
+                </div>
+              </div>
+              <%end%>
+ 
+
+<div class="card-body card-body">
+                  <table class="table table-user-information">
+                  
+                    <tbody>
+                      <tr>
+ <td> <strong>Reference:</strong></td>
+  <td><%= @res.reference %></td>
+</tr>
+<%if current_user.sadmin?%>
+ <td> <strong>Lawfirm:</strong></td>
+  <td><%= @res.lawfirm.name %> <%= link_to "view lawfirm profile", lawfirm_path( @res.lawfirm)%></td>
+</tr>
+
+<%end%>
+
+ <tr>
+<td>
+  <strong>Amount:</strong></td>
+  <td><%= @res.amount %></td>
+</tr>
+
+ <tr>
+<td>
+  <strong>Expires On:</strong></td>
+  <td><%= @res.expires_on %></td>
+</tr>
+
+ <tr>
+  <td><strong>Channel:</strong></td>
+ <td><%= @res.channel%></td>
+</tr>
+
+ <tr>
+  <td><strong>Gateway Response:</strong></td>
+  <td><%= @res.gateway_response %></td>
+
+
+</tr>
+
+ <tr>
+  <td><strong>Currency:</strong></td>
+ <td><%= @res.currency%></td>
+</tr>
+
+<%if @res.created_at%>
+ <tr>
+  <td><strong>Paid At:</strong></td>
+ <td><%= @res.created_at%></td>
+</tr>
+<%end%>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+
+
+</div>
+</div>
+

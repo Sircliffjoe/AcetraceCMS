@@ -1,0 +1,112 @@
+ <% provide( :title, @mycase.caseNo) %>
+
+
+
+    <h2 class="title1" style="background-color:#edeff2; font-size:30px; color:orange;"> Case Tasks - <%=@mycase.subject%></h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
+
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
+
+
+<div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                            <%if current_user.admin?%>
+                                <button class="pull-right btn btn-sm btn-rounded btn-info" data-toggle="modal" data-target="#myModal">Add Task</button>
+                                <%end%>
+                                <h4 class="card-title">Case To Do list</h4>
+                                <h6 class="card-subtitle">List of next task to complete</h6>
+                                <!-- ============================================================== -->
+                                <!-- To do list widgets -->
+                                <!-- ============================================================== -->
+                                <div class="to-do-widget m-t-20">
+                                    <!-- .modal for add task -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Add Task</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    
+                                                      
+                                                        
+
+
+<%= form_for([@mycase, @mycase.tasks.build], html: { multipart: true }) do |f| %>
+<form>
+   <div class="form-group">
+   <label>Task name</label>
+                                                           
+    <%= f.text_area :message, placeholder: "Enter Task Name" , class: "form-control"%>
+  
+  
+                                                           </div>
+
+    <div class="form-group">
+    <%= f.file_field :document, class: "btn btn-sm btn-secondary"%>
+  <%= f.hidden_field :document_cache %>
+  </div>
+
+
+
+
+
+<div class="form-group">
+                                                            
+     <label>Assign to</label>                                                       
+ 
+    <%= f.select :taskter_id,  current_user.lawfirm.attorneys.map{|client|[(client.first_name+" "+client.last_name), client.id]}, include_blank: true, id: "index_of_the_client_id_select_box", class:"custom-select form-control pull-right"%>
+
+
+
+                                                        </div>
+                                         
+                                                <div class="modal-footer">
+
+
+                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> <%= f.submit "Add Task", class: "btn btn-success" %>
+  </div>
+    </form> 
+  <% end %>
+
+                                               </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <!-- /.modal -->
+
+<ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+ <%if @mycase.tasks.count > 1%>                                
+
+<%= pluralize @mycase.tasks.size-1,'task' %> so far
+
+
+<%= render :partial =>'tasks/task',
+:collection => @mycase.tasks  %>
+
+<%else%>
+<li style="color:orange;">No Case Task added yet!</li>
+<%end%>
+</ul>
+</div>
+</div>
+</div>
+                                    
+
+
+
+  
+  
+  
+  
+  

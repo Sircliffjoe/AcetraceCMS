@@ -1,0 +1,80 @@
+
+<p id="notice"><%= notice %></p>
+
+<%if current_user.sadmin?%>
+
+<div class="col-md-12">
+            <div class="card">
+              
+
+
+<div class="card-body card-body">
+
+
+<% if @mycases.any? %>
+
+<div class="card-header">
+                <h5 class="card-title"><strong>Legal Cases</strong></h5>
+
+              </div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Caseno</th>
+      <th>Client name</th>
+      <th>Subject</th>
+      <th>Arrival Date</th>
+      <th>Due Date</th>
+      <th>Lawfirm</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      
+     
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mycases.each do |mycase| %>
+      <tr>
+        <td><%= mycase.caseNo %></td>
+        <td><%= mycase.client_name %></td>
+        <td><%= mycase.subject %></td>
+        
+        <td><%= mycase.arrival_date %></td>
+        <td><%= mycase.due_date %></td>
+       
+		 <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>
+       
+        <td><%= link_to 'Show', mycase %></td>
+        <td><%= link_to 'Edit', edit_mycase_path(mycase) %></td>
+        <td><%= link_to 'Destroy', mycase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%else%>
+<h5>There are no case entry yet!</h5>
+<%end%>
+
+
+<%= link_to 'Add New Case', new_mycase_path %>
+</div>
+</div>
+</div>
+
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>
+
+
+
+

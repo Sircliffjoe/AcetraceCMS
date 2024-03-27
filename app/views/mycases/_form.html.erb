@@ -1,0 +1,91 @@
+
+                               
+                                
+             
+<%= form_with(model: mycase, local: true) do |form| %>
+  <% if mycase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mycase.errors.count, "error") %> prohibited this mycase from being saved:</h2>
+
+      <ul>
+      <% mycase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="row">
+
+ <%if current_user.admin?%> 
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :caseNo %>
+    <%= form.text_field :caseNo, id: :mycase_caseNo, class:"form-control" %>
+ 
+ <h2>Private Individual</h2>
+ 
+    <%= form.label :f_name, "Client First Name" %>
+    <%= form.text_field :f_name, id: :mycase_f_name, type:"text", required:"required", class:"form-control"%>
+  
+    <%= form.label :l_name, "Client Last Name" %>
+    <%= form.text_field :l_name, id: :mycase_l_name, type:"text", required:"required", class:"form-control"%>
+
+ <h2>Corporate Entity</h2>
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :mycase_company_name, type:"text", required:"required", class:"form-control"%>
+
+    <%= form.label :rc %>
+    <%= form.text_field :rc, id: :mycase_rc, type:"text", required:"required", class:"form-control"%>
+
+    <%= form.label :rep_first, "Rep. First name" %>
+    <%= form.text_field :rep_first, id: :mycase_rep_first, type:"text", required:"required", class:"form-control"%>
+
+    <%= form.label :rep_last, "Rep. Last name" %>
+    <%= form.text_field :rep_last, id: :mycase_rep_last, type:"text", required:"required", class:"form-control"%>
+
+    <%= form.label :subject %>
+    <%= form.text_field :subject, id: :mycase_subject, required:"required", class:"form-control" %>
+
+    <%= form.label :area_of_practice %>
+    <%= form.text_field :area_of_practice, id: :mycase_area_of_practice, required:"required", class:"form-control"%>
+
+    <%= form.label :opponents %>
+    <%= form.text_area :opponents, id: :mycase_opponents, required:"required", class:"form-control" %>
+
+    <%= form.label :assigned_attorney %>
+    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, required:"required", class:"form-control"%>
+ 
+    <%= form.label :arrival_date %>
+    <%= form.date_select :arrival_date, id: :mycase_arrival_date, required:"required", class:"form-control" %>
+
+    <%= form.label :due_date %>
+    <%= form.date_select :due_date, id: :mycase_due_date, class:"form-control" %>
+ 
+    <%= form.label :summary_of_brief %>
+    <%= form.text_area :summary_of_brief, id: :mycase_summary_of_brief, type:"text", required:"required", class:"form-control" %>
+ 
+    <%= form.label :add_judge %>
+    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text", required:"required", class:"form-control" %>
+
+    <%= form.label :add_court %>
+    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", required:"required", class:"form-control" %>
+
+    <%= form.label :client_id, "Client"%>
+	<%= form.collection_select :client_id, User.order(:first_name),:id, :first_name, include_blank: true, class:"form-control" %>
+
+<%end%>
+
+  <%= form.label :status, "Update Case Status(Please be sure this case has successfully passed the current status)" %><br>
+  <%=  form.collection_select :status, Mycase.statuses.map{ |a| [a.first,a.first] },  :first, :second, class:"form-control" %>
+
+
+
+  <div class="actions">
+    <%= form.submit "Update Case", class:"btn btn-success"%> | <%= link_to 'Show Case', @mycase, class:"btn btn-info" %> |
+ <%= link_to "Back", :back, class:"btn btn-warning"%>
+
+  </div>
+  </div></div>
+<% end %>
+</div>
+

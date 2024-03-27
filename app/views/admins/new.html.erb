@@ -1,0 +1,130 @@
+
+
+
+<% provide( :title, "Sign Up") %>
+
+
+
+
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Please fill the form to continue </h3> </div> <div class="panel-body">
+
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+              <form> 
+
+                <div class="row">
+
+<div >
+
+ <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+      <div class="col-md-6">
+      <div class="form-group">
+      <%= f.label :first_name %>
+    
+
+    <%= f.text_field :first_name, autofocus: true, type:"text", required:"required", class:"form-control"%>
+
+      </div></div>
+      <br>
+<div class="col-md-6">
+<div class="form-group">
+    <%= f.label :last_name %>
+  
+    <%= f.text_field :last_name,  autofocus: true, type:"text", required:"required", class:"form-control" %>
+ 
+   </div></div>
+
+ 
+
+ <div class="col-md-6">
+ <div class="form-group">
+    <%= f.label :address %>
+
+    <%= f.text_field :address, autofocus: true, type:"text", required:"required", class:"form-control"%>
+ 
+   </div></div>
+  <div class="col-md-6">
+ <div class="form-group">
+    <%= f.label :email %><br />
+  
+    <%= f.email_field :email, autofocus: true, type:"email", required:"required", class:"form-control" %>
+ 
+ </div></div>
+ <div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :password %>
+  
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+  
+    <%= f.password_field :password, autocomplete: "off", type:"password", required:"required", class:"form-control" %>
+ 
+ </div></div>
+ <div class="col-md-6">
+ <div class="form-group">
+    <%= f.label :password_confirmation%><br />
+  
+    <%= f.password_field :password_confirmation, autocomplete: "off", type:"password", required:"required", class:"form-control"%>
+ 
+ </div></div>
+ <div class="col-md-6">
+<div class="form-group">
+    <%= f.label :phone_number %>
+  
+    <%= f.number_field :phone_number, type:"number", required:"required", class:"form-control" %>
+  
+ </div>
+ <div class="form-group">
+    <%= f.label :state%>
+  
+    <%= f.text_field :state, type:"text", required:"required", class:"form-control"%>
+  
+ </div></div>
+ <div class="col-md-6">
+<div class="form-group">
+    <%= f.label :city%>
+  
+    <%= f.text_field :city, type:"text", required:"required", class:"form-control"%>
+
+  </div> </div>
+<div class="clearfix"> </div>
+
+   <div class="sub_home">
+
+    <%= f.submit "Sign Up", class: "btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" %>
+  <div class="clearfix"> </div>
+          </div>
+
+<% end %>
+ <div class="form-group m-b-0">
+                            <div class="col-sm-12 text-center">
+                                <div>Already have an account? <b><%= link_to "Sign in", new_session_path(User), class:"text-info m-l-5" %></b>
+            </div>
+          </div>
+
+ 
+</form>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+

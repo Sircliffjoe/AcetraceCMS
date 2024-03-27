@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @billing.cost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @billing.description %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @billing.payment %>
+</p>
+
+<p>
+  <strong>Mycase:</strong>
+  <%= @billing.mycase %>
+</p>
+
+<%= link_to 'Edit', edit_billing_path(@billing) %> |
+<%= link_to 'Back', billings_path %>

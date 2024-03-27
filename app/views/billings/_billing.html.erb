@@ -1,0 +1,76 @@
+<%if billing%>    
+    <%if billing.id != nil %> 
+        <li class="list-group-item" data-role="billing">
+            <div class="checkbox checkbox-info">
+                <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule">
+                <label for="inputSchedule" class=""> <span style="float:left; color:blue;"><%= billing.cost %></span> </label>
+
+                <span><%= billing.description %></span> </label>
+
+                  <ul class="assignedto" style="float:right; color:blue;">
+            <h6>Posted By:</h6>
+   <%if billing.poster%>                                              <li>
+        <%if billing.poster.avatars?%>
+        <span class="prfil-img"><%= image_tag billing.poster.avatars_url, style:"width:50px;" %></span>
+        <%end%>
+        <%=billing.poster.first_name%> <%=billing.poster.last_name%> <b style="color:green;">Lawfirm - <%=billing.poster.type%></b>
+    <%end%>
+</li>
+                                            </ul>
+
+<%if billing.payment?%>
+<i class="fa fa-file"></i><span class="label label-info"><%= link_to "download billing file", download_file_billing_path(billing), data: "billing_file", class: "btn-info" %></span> </label>  
+<%end%>
+
+
+                                                <span class="label label-warning"><%= link_to "delete", [billing], method: :delete, data: {confirm: "Are you sure"}, class: "btn-warning"%></span> </label>
+
+                                             
+                                             
+                                            </div>
+
+
+  <div class="item-date"> <%=time_ago_in_words(billing.created_at) if billing.created_at? %></div>
+          
+
+
+           <%if billing.poster_type == "Client"%>        
+                
+ <ul class="assignedto" style="float:left; color:blue;">
+     <h6>Status:</h6>
+      <li style="color:orange;"><strong>
+
+   
+
+<%=billing.status%>
+</strong>
+
+     </li>
+     <%if current_user.admin?%>
+        <% if billing.status == "unapproved"%>
+
+        <li>
+   
+<%= link_to 'Approve Payment', approve_billing_billing_path(billing.id), class:'btn btn-success' %> 
+
+
+     </li>
+     <%end%>
+   <%end%>
+
+  </ul>
+    <%end%>
+
+                                          
+                                        </li>
+                                        <%end%>
+                                        <%end%>
+                   
+
+
+
+  
+
+
+
+

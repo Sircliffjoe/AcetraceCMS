@@ -1,0 +1,9 @@
+
+  <div class="contents main-content">
+  <%= link_to notification.actor.first_name, main_app.user_path(notification.actor) %> has created a Legal Case with CaseNo:
+</div>
+  <div class="contents main-content">
+ <i class="fa fa-legal"></i> <%= link_to notification.target.caseNo, main_app.mycase_path(notification.target) %>
+</div>
+</div>
+

@@ -1,0 +1,25 @@
+Hello, <%= @user.first_name %>
+    <%if @user.type == "Admin" %>
+
+      Legal Case Task has been posted on a Case in your Lawfirm <%= @user.lawfirm.name %> .The details are below:
+      Caseno:<%= @mycase.caseNo %>
+  Subject:
+<%= @mycase.subject %>
+ Task: <%= @task.message %>Directed Attorney: <%= @task.taskter.full_name %>
+  We are glad to serve you.
+
+Acetrace-CMS Team 
+    <%elsif @user.type == "Attorney"%>
+
+    Task has been posted on a Case in <%= @user.lawfirm.name %> Lawfirm.
+    The details are below:
+
+    Caseno: <%= @mycase.caseNo %>
+    Subject:<%= @mycase.subject %>
+    Task: <%= @task.message %>
+    Directed Attorney: <%= @task.taskter.full_name %>
+
+     Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+Acetrace-CMS Team 
+  <%end%>

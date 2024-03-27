@@ -1,0 +1,195 @@
+<% provide( :title, @user.full_name) %>
+
+          <h1 class="title1">Profile Info</h1>
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">  <%= @user.full_name%></h3> </div> <div class="panel-body">
+
+<div class="col-md-4 widget widget1 panel-grids">
+          
+
+ <div class="row">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+          <div class="profile-userpic">
+           <%if @user.avatars?%>
+       <%= image_tag @user.avatars_url, class:"img-circle" %>
+
+
+        <%else%>
+
+        <img class:"img-circle" src="../assets/fallback/default.png" />
+        <%end%>
+
+
+        </div>
+            <%= @user.full_name %>
+          </div>
+          <div class="profile-usertitle-job">
+            <%=@user.type%>
+            
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <center><button type="button" class="btn btn-success btn-sm"><%= link_to @user.lawfirm.name%></button></center>
+          
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <li class="active">
+              <%=link_to edit_attorney_path(@user.id) do%>
+              <i class="fa fa-user"></i>Account Settings</a>
+              <%end%>
+
+            </li>
+            
+           </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+
+    </div>
+   
+    </div>
+    
+
+  <div class="col-md-7 widget widget1">
+            <div class="profile-content">
+                                        <center><h3>Timeline</h3></center>
+         <p>
+ <div>
+
+ <% if @user_cases.any? %>
+ <h5><strong><%= pluralize(@user_cases.count, "Case") %> Associated.
+
+  </strong><h5/>
+<table class="table">
+  <thead>
+    <tr>
+     
+      <th>Subject</th>
+      
+      <th>Status</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_cases.each do |mycase| %>
+  <tr>
+         
+        
+        <td><%= mycase.subject %></td>
+       
+        <td><%= mycase.status %></td>
+        
+        <td><a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a></td>
+        
+      <%if @user.tasks.any?%>
+       <%if @user.tasks == mycase.tasks%>
+    
+       
+                  
+              
+           <td><%= link_to 'see tasks', casetask_mycase_path(mycase.id) %> </td>
+          
+           
+      <%end%>  
+    
+    <%end%> 
+    
+  </td>
+      </tr>
+    <% end %>
+  
+  </tbody>
+</table>
+
+<%else%>
+<h5>There are no cases associated to this user yet!</h5>
+<%end%>
+
+<p>
+  <strong>First name  - </strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name  - </strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Position  - </strong>
+  <%= @user.position %>
+</p>
+<p>
+  <strong>Date of Birth  - </strong>
+  <%= @user.birthday %>
+</p>
+<p>
+  <strong>Email - </strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone number - </strong>
+  <%= @user.phone_number %>
+</p>
+
+<p>
+  <strong>Address - </strong>
+  <%= @user.address %>
+</p>
+<p>
+  <strong>State - </strong>
+  <%= @user.state %>
+</p>
+<p>
+  <strong>Address - </strong>
+  <%= @user.city %>
+</p>
+ </div>
+<%if current_user.id == @user.id%>
+    <%= link_to 'Edit Profile', edit_user_registration_path %> |
+  <%else%>
+<%= link_to 'Edit User', edit_attorney_path(@user) %> |
+<%end%>
+
+ <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+            </div>
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+

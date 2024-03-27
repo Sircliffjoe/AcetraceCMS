@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Hello, <%= @user.first_name %></h1>
+    <%if @user.type == "Admin" %>
+
+     <p>
+      Legal Case <b style="color:orange;">Task</b> has been posted on a Case in your Lawfirm <em><b style="color:orange;"><%= @user.lawfirm.name %> </b></em>. <em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+ 
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+
+<h3 style="float:left; color:orange;">Task: <%= @task.message %></h3>
+<h3 style="float:right; color:orange;">Directed Attorney: <%= @task.taskter.full_name %></h3>
+<br/>
+      We are glad to serve you.
+<br/>
+<br/>
+ <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+    <%elsif @user.type == "Attorney"%>
+
+     
+     <p>
+      Legal Case <b style="color:orange;">Task</b> has been posted on a Case in <em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em>. <em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+ 
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+
+<h3 style="float:left; color:orange;">Task: <%= @task.message %></h3>
+<h3 style="float:right; color:orange;">Directed Attorney: <%= @task.taskter.full_name %></h3>
+
+<br/>
+     Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+<br/>
+<br/>
+ <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+
+  <%end%>
+  </body>
+</html>

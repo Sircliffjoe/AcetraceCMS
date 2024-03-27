@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  caseNo: MyString
+  client_name: MyString
+  subject: MyString
+  area_of_practice: MyString
+  opponents: MyText
+  assigned_attorney: MyString
+  arrival_date: 2017-10-03
+  due_date: 2017-10-03
+  status: 1
+  summary_of_brief: MyText
+  add_judge: MyString
+  add_court: MyString
+  user_id: 1
+
+two:
+  caseNo: MyString
+  client_name: MyString
+  subject: MyString
+  area_of_practice: MyString
+  opponents: MyText
+  assigned_attorney: MyString
+  arrival_date: 2017-10-03
+  due_date: 2017-10-03
+  status: 1
+  summary_of_brief: MyText
+  add_judge: MyString
+  add_court: MyString
+  user_id: 1

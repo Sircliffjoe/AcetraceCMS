@@ -1,0 +1,155 @@
+  
+  <% provide( :title, "New Adminassistant") %>
+
+<%if current_user.admin?%>
+
+
+
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> New Admin Assistant </h3> </div> <div class="panel-body">
+
+                              
+                <div class="row">
+
+<div >
+<%= form_for(@user, html: { multipart: true }) do |f| %>
+<form>
+ <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+
+      <div class="col-md-6">
+      <div class="form-group">
+      <%= f.label :first_name %>
+    
+
+    <%= f.text_field :first_name, autofocus: true, type:"text", required:"required", class:"form-control" %>
+
+      </div></div>
+      <div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :last_name %>
+	
+    <%= f.text_field :last_name,  autofocus: true, type:"text", required:"required", class:"form-control" %>
+ 
+   </div></div>
+
+
+ <div class="col-md-6">
+      <div class="form-group">
+  <%= f.label :avatars, "Profile Pic" %>
+ <%if @user.avatars?%>
+   <%= image_tag @user.avatars_url %>
+   <%end%>
+    <%= f.file_field :avatars, autofocus: true, class:"form-control"%>
+	 <%= f.hidden_field :avatars_cache %>
+	
+
+   </div> </div>
+<div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :birthday%>
+	
+    <%= f.date_field :birthday, autofocus: true , class:"form-control" %>
+ 
+ </div></div>
+ <div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :address %>
+
+    <%= f.text_field :address, autofocus: true, type:"text", required:"required", class:"form-control" %>
+ 
+   </div></div>
+  
+ <div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :email %><br />
+	
+    <%= f.email_field :email, autofocus: true, type:"email", required:"required", class:"form-control" %>
+ 
+ </div></div>
+<div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :password %>
+	
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+	
+    <%= f.password_field :password, autocomplete: "off", type:"password", required:"required", class:"form-control"%>
+ </div></div>
+ 
+<div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :password_confirmation%><br />
+	
+    <%= f.password_field :password_confirmation, autocomplete: "off", type:"password", required:"required", class:"form-control" %>
+ 
+ </div></div>
+<div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :phone_number %>
+	
+    <%= f.number_field :phone_number, type:"text", required:"required", class:"form-control"%>
+
+ </div></div>
+ <div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :state%>
+	
+    <%= f.text_field :state, type:"text", required:"required", class:"form-control"%>
+  
+ </div></div>
+<div class="col-md-6">
+      <div class="form-group">
+    <%= f.label :city%>
+	
+    <%= f.text_field :city, type:"text", required:"required", class:"form-control"%>
+
+  </div> </div>
+
+ 
+  
+
+ 
+
+<br/>
+<br/>
+<div class="actions">
+                     
+    <%= f.submit "Create account" , class: "btn btn-info" %>
+<br/>
+<br/>
+  </div></form>
+<% end %>
+
+  </div>
+</div>
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>
+ 
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

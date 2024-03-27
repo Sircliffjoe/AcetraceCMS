@@ -1,0 +1,25 @@
+<% provide( :title, "Setup Lawfirm") %>
+
+<%if current_user.admin? || current_user.sadmin?%>
+
+ <div class="row">
+   <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+  
+
+<h2 class="title1"><img src="../assets/img/actionaid-logo.png" style="float:left;"/>New Lawfirm Form</h2>
+
+<%= render 'form', lawfirm: @lawfirm %>
+
+</div>
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>
+
+
+
+   

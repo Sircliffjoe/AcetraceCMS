@@ -1,0 +1,102 @@
+
+<%= form_with(model: lawfirm, local: true, html: { multipart: true }) do |form| %>
+  <% if lawfirm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lawfirm.errors.count, "error") %> prohibited this lawfirm from being saved:</h2>
+
+      <ul>
+      <% lawfirm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> New Lawfirm </h3> </div> <div class="panel-body">
+
+
+              <form> 
+
+                <div class="row">
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :name, "Name of Lawfirm" %>
+    <%= form.text_field :name, id: :lawfirm_name,  type:"text",required:"required", class:"form-control" %>
+  </div></div>
+
+  <div class="col-md-6">
+ <div class="form-group">
+  
+ 
+  <%= form.label :logo, "Lawfirm Logo" %>
+    
+	<%= form.file_field :logos, autofocus: true, class:"form-control" %>
+  
+
+  </div>
+   
+  </div>
+  
+  <div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :info, "About Lawfirm" %>
+    <%= form.text_area :info, id: :lawfirm_info, type:"text", required:"required",style:"height:250px;", class:"form-control" %>
+  </div></div>
+
+      
+
+
+ <div class="col-md-6">
+      <div class="form-group">
+  <h2><i class="fa fa-sitemap"></i>Type of Organization</h2>
+   
+      <h2><%= f.radio_button :type_of_organization, "Lawfirm", required:"required",  class:"form-control has-feedback-left" %> Lawfirm</h2>
+    <h2><%= f.radio_button :type_of_organization, "Legal Chamber", required:"required",  class:"form-control has-feedback-left" %>Legal Chamber</h2>
+
+    <h2><%= f.radio_button :type_of_organization, "Legal Institution", required:"required",  class:"form-control has-feedback-left" %>Legal Institution</h2>
+ 
+          </div>
+          </div>
+
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :email, "Lawfirm Email" %>
+    <%= form.text_field :email, id: :lawfirm_email, required:"required", class:"form-control" %>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :phone_number, "Lawfirm Telephone" %>
+    <%= form.number_field :phone_number, id: :lawfirm_phone_number, type:"number",required:"required", class:"form-control"%>
+  </div></div>
+  <div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :address, "Lawfirm Address" %>
+    <%= form.text_field :address, id: :lawfirm_address, type:"text", required:"required", class:"form-control"%>
+  </div></div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :lawfirm_city, type:"text", required:"required", class:"form-control"%>
+  </div></div>
+ 
+ 
+<div class="col-md-6">
+ <div class="form-group">
+    <%= form.label :state %>
+   <%= form.select :state, ["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta", "Ebonyi","Edo","Ekiti","Enugu","FCT","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nassarawa","Niger","Ogun","Ondo","Osun","Oyo State","Plateau","River State","Sokoto","Taraba","Yobe","Zamfara"], prompt: "Select...",class:"custom-select form-control pull-right", required:"required"%>
+         
+  </div></div>
+   
+
+   <div class="action"> <%= form.submit "Create Lawfirm" , class: "btn btn-success" %>   
+</form>
+  </div></div>
+</div>
+</div>
+</div>
+</div>
+<% end %>
+

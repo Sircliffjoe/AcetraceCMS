@@ -1,0 +1,104 @@
+
+
+<% provide( :title, "Dashboard") %>
+
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmscount%></strong></h5>
+                      <span>Lawfirms Registered</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@actives.count%></strong></h5>
+                      <span>Lawfirms Active</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=alluser%></strong></h5>
+                      <span>Users</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-money user2 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=adminscount%></strong></h5>
+                      <span>Lawfirm Admins</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-adjust icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=allcases%></strong></h5>
+                      <span>Cases</span>
+                    </div>
+                </div>
+           </div>
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@total['data']['total_transactions']%></strong></h5>
+                      <span>Transactions Made</span>
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@ats.count%></strong></h5>
+                      <span>Attorneys</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>&#8358; <%=@total['data']['total_volume']/100%></strong></h5>
+                      <span>Earned</span>
+                    </div>
+                </div>
+          </div>
+
+               <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-group icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@cls.count%></strong></h5>
+                      <span>Clients</span>
+                    </div>
+                </div>
+           </div>
+          
+          <div class="clearfix"> </div>
+    </div>
+    <br/>
+   <div class="clearfix"> </div>
+
+
+
+
+<br/>
+
+<br/>
+
+<br/>
+

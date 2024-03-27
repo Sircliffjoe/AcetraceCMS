@@ -1,0 +1,98 @@
+<% provide( :title, "Users Repo") %>
+
+<%if current_user.sadmin?%>
+
+
+   <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">All Users</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
+
+  <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                              
+              
+                            </div>
+                            <div class="bg-light p-20">
+                                <div class="d-flex">
+                                   
+                                    <div class="ml-auto align-self-center">
+                                        <h2 class="text-success"></h2></div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table style="font-size:16px;" class="table table-hover earning-box">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Name</th>
+                                                <th></th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+           <% @users.each do |user| %>
+            
+<tr>
+                                                <td style="width:50px;">
+<%if user.avatars?%>
+                                                <span class="round"><%= image_tag user.avatars_url, style:"width:50px;" %>
+<%end%>
+                                            </span></td>
+                                                <td>
+                                                    <h6><%= user.full_name %></h6><small class="text-muted"><%= user.phone_number %></small></td>
+                                                <td> 
+
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/Acetrace-users/<%=user.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+     
+
+        
+
+     
+  
+
+        <%= link_to user, method: :delete, data: { confirm: 'Are you sure you really want to delete this user?' } do%><i onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i>
+    <% end %>
+
+
+
+              </td>
+                                                <td><%= user.email %></td>
+                                            </tr>
+                                                       
+
+
+<%end%>
+
+                                        </tbody>
+                                    </table>
+
+<%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>

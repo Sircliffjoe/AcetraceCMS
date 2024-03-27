@@ -1,0 +1,104 @@
+  <aside class="sidebar-left">
+      <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <h1><a class="navbar-brand" href="/"><span class="fa fa-area-chart"></span>Acetrace<span class="dashboard_text">S.Admin Dashboard</span></a></h1>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="sidebar-menu">
+              <li class="header">MAIN NAVIGATION</li>
+              <li class="treeview">
+                <a href="/">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+              </li>
+        <li class="treeview">
+                <a href="/subscribers">
+                <i class="fa fa-th"></i>
+                <span>Active Lawfirms</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                </a>
+               
+                
+              </li>
+
+               <li class="treeview"><a href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo">
+                 <i class="fa fa-file"></i>
+                <span>Lawfirms</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
+
+
+     <li class="treeview"><a>
+                 <i class="fa fa-sitemap"></i>
+                <span>Super Admins</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   <ul class="treeview-menu">
+          <li><a href="/sadmins">View Super Admins</a>
+            </li>
+
+            <li><a href="/sadmins/new">Add Super Admin</a>
+            </li>
+        </ul>
+
+   </li>
+
+        <li class="treeview"><a href="/QI0V438P4SIPW036GOYAVKRUI2SOJT9QFPV8AGQ7YUNP3F8D8PWTH155QWQBBAMOCVGASQSMNKF-acetrace-membership-rep">
+                 <i class="fa fa-user"></i>
+                <span>Users</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+
+   </li>
+
+
+   <li class="treeview"><a href="/7QXY84CQ3ZX9H21HQOVN24M5NF89L2WQQ4L3IUHW253C5JH60WA84622U9SRBYW8TMVE2B9Uacetrace-lawfirms-admins">
+                 <i class="fa fa-desktop"></i>
+                <span>Lawfirm Admins</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
+
+
+
+ <li class="treeview"><a  href="/transactions"><i class="fa fa-gift"></i> Transactions</a></li>
+
+    <li class="treeview">
+                <a href="/Acetrace-Forum-Post">
+                <i class="fa fa-envelope"></i> <span>Forum </span>
+                <i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">post</small><span class="label label-primary1 pull-right">new</span></a>
+                   
+                <ul class="treeview-menu">
+                  <li><a href="/Acetrace-Forum-Post"><i class="fa fa-angle-right"></i>View Posts </a></li>
+                 
+                </ul>
+              </li>
+ 
+      
+
+                <li class="treeview">
+
+                <%= link_to destroy_user_session_path, method: :delete do%> 
+  
+                  <i class="fa fa-sign-out"></i> <span>Logout</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                <%end%>
+
+              </li>
+
+
+                         </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </nav>
+    </aside>
+  
+
+

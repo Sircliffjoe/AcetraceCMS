@@ -1,0 +1,8 @@
+
+<div class="media-heading">
+  <%= link_to notification.actor.first_name, main_app.user_path(notification.actor) %> has updated a Legal Case with CaseNo:
+  <div class="media-content">
+  <i class="mdi mdi-table"></i><%= link_to notification.target.caseNo, main_app.mycase_path(notification.target) %>
+</div>
+</div>
+

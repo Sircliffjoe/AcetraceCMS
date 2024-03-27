@@ -1,0 +1,75 @@
+  <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- User profile -->
+                <div class="user-profile">
+                    <!-- User profile image -->
+                    <div class="profile-text">
+                 
+<% if user_signed_in? %> 
+           
+          <%if current_user.avatars?%>
+          
+        <%= image_tag current_user.avatars_url, :class => "profile-img"  %>
+        <%else%>
+          <img class="profile-img" src="../assets/img/avatar/default.png" alt="..."></span>
+        <%end%>
+  
+                    
+                        <h5><%= current_user.first_name %> <%= current_user.last_name %></h5><%end%>
+       
+                        
+                     <%= link_to destroy_user_session_path, method: :delete , class:'dropdown-item' do%><i class="fa fa-power-off"></i>Logout <%end%>
+                    </div>
+
+
+          </div>
+                <!-- End User profile text-->
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+<li> <a class="has-arrow waves-effect waves-dark" href="/"><i class="mdi mdi-widgets"></i><span class="hide-menu">Dashboard </span></a>
+                        </li>
+ <li> <a class="has-arrow waves-effect waves-dark" href="/subscribers"><i class="mdi mdi-widgets"></i><span class="hide-menu">Active Lawfirms</span></a>
+                        </li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo"><i class="mdi mdi-widgets"></i><span class="hide-menu">Lawfirms </span></a>
+                        </li>
+
+
+                            <li> <a class="has-arrow waves-effect waves-dark" href="/sadmins/new"><i class="mdi mdi-file-chart"></i><span class="hide-menu">Add SuperAdmin</span></a>
+                        </li>
+                     
+                <li> <a class="has-arrow waves-effect waves-dark" href="/sadmins"><i class="mdi mdi-widgets"></i><span class="hide-menu">Super Admins </span></a>
+                        </li>
+
+
+ <li>
+            <a class="has-arrow waves-effect waves-dark" href="/QI0V438P4SIPW036GOYAVKRUI2SOJT9QFPV8AGQ7YUNP3F8D8PWTH155QWQBBAMOCVGASQSMNKF-acetrace-membership-rep">
+              <i class="mdi mdi-table"></i>
+              <span class="hide-menu">System Users</span>
+            </a>
+          </li>
+          <li>
+            <a class="has-arrow waves-effect waves-dark" href="/7QXY84CQ3ZX9H21HQOVN24M5NF89L2WQQ4L3IUHW253C5JH60WA84622U9SRBYW8TMVE2B9Uacetrace-lawfirms-admins">
+              <i class="mdi mdi-file"></i>
+              <span class="hide-menu">Lawfirm Admins</span>
+            </a>
+          </li>
+         
+
+         
+ <li> <a class="has-arrow waves-effect waves-dark" href="/transactions"><i class="mdi mdi-widgets"></i><span class="hide-menu">Transactions </span></a>
+                        </li>
+
+
+
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>

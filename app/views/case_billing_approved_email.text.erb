@@ -1,0 +1,22 @@
+Hello, <%= @user.first_name %>
+    <%if @user.type == "Admin" %>
+
+   
+      Legal Case Billing posted on a Case in your Lawfirm <%= @user.lawfirm.name %>  . Has beenapproved. The details are below: 
+      Caseno:<%= @mycase.caseNo %>
+      Subject:<%= @mycase.subject %>
+      We are glad to serve you.
+Acetrace-CMS Team
+    <%else%>
+
+     
+ 
+      Legal Case Billing posted on a Case in<%= @user.lawfirm.name %> Lawfirm . Has beenapproved. The details are below:
+        Caseno:<%= @mycase.caseNo %>
+        Subject:<%= @mycase.subject %>
+     Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+Acetrace-CMS Team 
+
+  <%end%>
+  

@@ -1,0 +1,64 @@
+  
+  <% provide( :title, "Transaction History") %>
+  
+ 
+      <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Paymentt History</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+         
+  
+
+</div>
+
+
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+<div class="card-body card-body">
+              <div class="card-header">
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Lawfirm Email - <%= current_user.lawfirm.email %></div>
+                </div>
+              </div>
+ 
+<% if @ress.any?%>
+ <h5><strong><%= pluralize(@ress.count, "Transaction") %> made.
+
+  </strong><h5/>
+<table class="table table-user-information">
+  <thead>
+                                            <tr>
+                                                <th >ref</th>
+                                                <th>status</th>
+                                                <th colspan="2">action</th>
+                                            </tr>
+                                        </thead>
+                    <tbody>
+<%@ress.each do |f| %>
+<div class="card-body card-body">
+                  
+                      <tr>
+
+  <td><%= f.reference %></td>
+
+
+  <td><%= f.status %></td>
+
+<td>
+ <%= link_to 'view report', details_transaction_path(f.id), class:"btn btn-info" %>
+ </td>
+</tr>
+ <%end%>
+  <%end%>
+
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+ <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 

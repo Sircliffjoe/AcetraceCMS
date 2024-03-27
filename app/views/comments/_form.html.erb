@@ -1,0 +1,57 @@
+<%= form_for([@post, @post.comments.build], html: { multipart: true }) do |form| %>
+  
+<% if @post.errors.any? %>
+ 
+
+<div class="col-md-8 compose-right widget-shadow">
+					<div class="panel-default">
+						<div class="panel-heading">
+							Post new comment 
+						</div>
+						<div class="panel-body">
+							<div class="alert alert-info">
+								Please fill the form and submit
+							</div>
+							<form class="com-mail">
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+<div class="row">
+  <div class="col-md-9 col-xs-12">
+    
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br />
+        <form class="form-horizontal form-label-left input_mask">
+<div class="col-md-6 col-sm-12  form-group has-feedback">
+            
+     <%= form.text_area :content, id: :comment_content,  class:"form-control has-feedback-left", placeholder:"please type your comment", type:"text", required:"required", rows:10%>
+    
+  
+    
+  
+
+          
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+               <%= form.submit "Submit", class:"btn btn-info"%> <br/><br/>
+ 
+
+<% end %>
+
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"> </div>	
+			</div>

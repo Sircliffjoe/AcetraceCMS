@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mycasecomments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Mycase</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mycasecomments.each do |mycasecomment| %>
+      <tr>
+        <td><%= mycasecomment.content %></td>
+        <td><%= mycasecomment.mycase_id %></td>
+        <td><%= mycasecomment.user_id %></td>
+        <td><%= link_to 'Show', mycasecomment %></td>
+        <td><%= link_to 'Edit', edit_mycasecomment_path(mycasecomment) %></td>
+        <td><%= link_to 'Destroy', mycasecomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mycasecomment', new_mycasecomment_path %>

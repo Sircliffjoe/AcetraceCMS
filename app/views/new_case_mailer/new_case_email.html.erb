@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Hello, <%= @user.first_name %></h1>
+    <%if @user.type == "Admin" %>
+
+     <p>
+      A new Legal Case has been created in your Lawfirm <em><b style="color:orange;"><%= @user.lawfirm.name %></b></em>. <em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Entity:</strong></td>
+  <td><%= @mycase.entity %></td>
+</tr>
+
+<%if @mycase.f_name %>
+<td>
+  <strong>Client First Name:</strong></td>
+  <td><%= @mycase.f_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.l_name %>
+<td>
+  <strong>Client Last Name:</strong></td>
+  <td><%= @mycase.l_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_name %>
+<td>
+  <strong>Company Name:</strong></td>
+  <td><%= @mycase.company_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.rc %>
+<td>
+  <strong>Company RC No:</strong></td>
+  <td><%= @mycase.rc %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_first %>
+<td>
+  <strong>Representative First Name:</strong></td>
+  <td><%= @mycase.rep_first %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_last %>
+<td>
+  <strong>Representative Last Name:</strong></td>
+  <td><%= @mycase.rep_last %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_spec %>
+<td>
+  <strong>Company Sector(Specialization):</strong></td>
+  <td><%= @mycase.company_spec %></td>
+</tr>
+<%end%>
+
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+ <tr>
+  <td><strong>Area of practice:</strong></td>
+  <td><%= @mycase.area_of_practice %></td>
+</tr>
+
+ <tr>
+ <td> <strong>Opponents:</strong></td>
+ <td> <%= @mycase.opponents %></td>
+</tr>
+
+
+
+ <tr>
+  <td><strong>Arrival date:</strong></td>
+ <td> <%= @mycase.arrival_date %></td>
+</tr>
+
+ <tr>
+  <td><strong>Due date:</strong></td>
+  <td><%= @mycase.due_date %></td>
+</tr>
+
+
+ <tr>
+  <td><strong>Status:</strong></td>
+  <td><strong style="color:orange;"><%= @mycase.status %></strong></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+      We are glad to serve you.
+<br/>
+<br/>
+ <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+    <%elsif @user.type == "Attorney"%>
+
+      <p>
+      You have been asigned as an Attorney in a Legal created at <<em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em><br/><em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Entity:</strong></td>
+  <td><%= @mycase.entity %></td>
+</tr>
+
+<%if @mycase.f_name %>
+<td>
+  <strong>Client First Name:</strong></td>
+  <td><%= @mycase.f_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.l_name %>
+<td>
+  <strong>Client Last Name:</strong></td>
+  <td><%= @mycase.l_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_name %>
+<td>
+  <strong>Company Name:</strong></td>
+  <td><%= @mycase.company_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.rc %>
+<td>
+  <strong>Company RC No:</strong></td>
+  <td><%= @mycase.rc %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_first %>
+<td>
+  <strong>Representative First Name:</strong></td>
+  <td><%= @mycase.rep_first %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_last %>
+<td>
+  <strong>Representative Last Name:</strong></td>
+  <td><%= @mycase.rep_last %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_spec %>
+<td>
+  <strong>Company Sector(Specialization):</strong></td>
+  <td><%= @mycase.company_spec %></td>
+</tr>
+<%end%>
+
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+ <tr>
+  <td><strong>Area of practice:</strong></td>
+  <td><%= @mycase.area_of_practice %></td>
+</tr>
+
+ <tr>
+ <td> <strong>Opponents:</strong></td>
+ <td> <%= @mycase.opponents %></td>
+</tr>
+
+
+
+ <tr>
+  <td><strong>Arrival date:</strong></td>
+ <td> <%= @mycase.arrival_date %></td>
+</tr>
+
+ <tr>
+  <td><strong>Due date:</strong></td>
+  <td><%= @mycase.due_date %></td>
+</tr>
+
+
+ <tr>
+  <td><strong>Status:</strong></td>
+  <td><strong style="color:orange;"><%= @mycase.status %></strong></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+<br/>
+<br/>
+<p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+
+
+
+    <%else%>
+    <p>
+      Your Legal Case Iniatition at <em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em> has been completed. <b><em>See Details Below</em></b><br/> 
+<table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Entity:</strong></td>
+  <td><%= @mycase.entity %></td>
+</tr>
+
+<%if @mycase.f_name %>
+<td>
+  <strong>Client First Name:</strong></td>
+  <td><%= @mycase.f_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.l_name %>
+<td>
+  <strong>Client Last Name:</strong></td>
+  <td><%= @mycase.l_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_name %>
+<td>
+  <strong>Company Name:</strong></td>
+  <td><%= @mycase.company_name %></td>
+</tr>
+<%end%>
+
+<%if @mycase.rc %>
+<td>
+  <strong>Company RC No:</strong></td>
+  <td><%= @mycase.rc %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_first %>
+<td>
+  <strong>Representative First Name:</strong></td>
+  <td><%= @mycase.rep_first %></td>
+</tr>
+<%end%>
+
+
+<%if @mycase.rep_last %>
+<td>
+  <strong>Representative Last Name:</strong></td>
+  <td><%= @mycase.rep_last %></td>
+</tr>
+<%end%>
+
+<%if @mycase.company_spec %>
+<td>
+  <strong>Company Sector(Specialization):</strong></td>
+  <td><%= @mycase.company_spec %></td>
+</tr>
+<%end%>
+
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+ <tr>
+  <td><strong>Area of practice:</strong></td>
+  <td><%= @mycase.area_of_practice %></td>
+</tr>
+
+ <tr>
+ <td> <strong>Opponents:</strong></td>
+ <td> <%= @mycase.opponents %></td>
+</tr>
+
+
+
+ <tr>
+  <td><strong>Arrival date:</strong></td>
+ <td> <%= @mycase.arrival_date %></td>
+</tr>
+
+ <tr>
+  <td><strong>Due date:</strong></td>
+  <td><%= @mycase.due_date %></td>
+</tr>
+
+
+ <tr>
+  <td><strong>Status:</strong></td>
+  <td><strong style="color:orange;"><%= @mycase.status %></strong></td>
+</tr>
+
+</tbody>
+</table>
+
+      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+<br/>
+<br/>
+<p style="float:left; color:blue;">Acetrace-CMS Team </p>
+
+    </p>
+  <%end%>
+  </body>
+</html>

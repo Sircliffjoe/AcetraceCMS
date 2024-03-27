@@ -1,0 +1,60 @@
+  
+  <% provide( :title, "Transaction History") %>
+
+<%if current_user.sadmin?%>
+<div class="forms">
+        
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+            <div class="form-title">
+              <h4>Transactions</h4>
+            </div>
+
+ <div class="form-body">
+ 
+<% if @ress.any?%>
+ <h5><strong><%= pluralize(@ress.count, "Transaction") %> made.
+
+  </strong><h5/>
+
+<%@ress.each do |f| %>
+<div class="card-body card-body">
+                  <table style="font-size:16px;" class="table table-user-information">
+                  <thead>
+                   <tr>
+                     <th>Reference</th>
+                     <th>Status</th>
+                     <th colspan="2"></th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+
+  <td><%= f.reference %></td>
+
+
+  <td><%= f.status %></td>
+
+
+ <%= link_to 'view report', details_transaction_path(f.id), class:"btn btn-success" %> |
+</tr>
+</tbody>
+</table>
+
+ <%end%>
+  <%end%>
+
+</div>
+</div>
+</div>
+
+<%else%>
+
+<h5>Your are not allowed to view this page</h5>
+
+ <%end%>
+
+<br>
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 

@@ -1,0 +1,204 @@
+
+
+<% provide( :title, "Dashboard") %>
+
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmcasescount%></strong></h5>
+                      <span>Lawfirm Cases</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=clientscount%></strong></h5>
+                      <span>Clients</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-laptop user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=lawfirmusercount%></strong></h5>
+                      <span>Lawfirm Users</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-money user2 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=attorneyscount%></strong></h5>
+                      <span>Lawfirm Attorneys</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-adjust icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@offset%> Days</strong></h5>
+                      <span>Active Subscription</span>
+                    </div>
+                </div>
+           </div>
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@lopen.count%></strong></h5>
+                      <span>Cases Opened</span>
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@linview.count%></strong></h5>
+                      <span>Cases Inview</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@lcompleted.count%></strong></h5>
+                      <span>Cases Completed</span>
+                    </div>
+                </div>
+          </div>
+
+          
+          <div class="clearfix"> </div>
+    </div>
+    <br/>
+     
+
+                 <div class="col_3">
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a style="color:orange;" href="/legalcase-new-entry" target="_blank">
+                   <h5 style="color:orange;" class="w-60px"><i style="color:orange;" class="fa fa-legal"></i>Create a Case</h5>
+                </a>
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+               
+               <a style="color:orange;" href="/clients/new">
+                 <h5 style="color:orange;" class="w-60px"><i class="fa fa-user"></i> Add a Client
+                 </h5>
+                  
+                  
+                </a>
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a class="actions" href="/attorneys/new">
+                  <h5 style="color:orange;" class="w-60px"><i class="fa fa-tag"></i>
+                    Add an Attorney
+                    </h5>
+                </a>
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                 <a class="actions" href="/adminassistants/new">
+                 <h5 style="color:orange;" class="w-60px"><i class="fa fa-user"></i>
+Add an Admin Assistant
+                 </h5>
+                  
+                  
+                </a>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a class="actions" href="/lawfirm-legalcases-assign-cost">
+                  <h5 style="color:orange;" class="w-60px"><i class="fa fa-money"></i>
+Add Cost to Case
+
+                  </h5>
+                 
+                </a>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a class="actions" href="/lawfirm-legalcases-assign-attorney">
+                  <h5 style="color:orange;" class="w-60px"><i class="fa fa-certificate"></i>
+
+Add Attorney to Case
+                  </h5>
+                  
+                </a>  </div>
+                </div>
+          </div>
+             <div class="clearfix"> </div>
+</div>
+         <br/>
+   <div class="clearfix"> </div>
+
+  
+      
+          <div class="clearfix"> </div>
+        </div>
+                       
+   <div class="charts">
+          
+          
+          <div class="charts-grids widget states-mdl">
+            <div class="card-header">
+            </div>
+            <div class="demo-placeholder">
+               <h3 class="box-title">
+              <i class="fa fa-calendar"></i>Cases Calendar</h3>
+             
+
+ <%=  month_calendar  events:  @lawfirm_cases do |date, meetings| %>
+
+
+             
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+                  <% end %>
+<% end %>
+
+                
+
+            </div>
+   </div>
+          </div>
+
+
+<br/>
+
+<br/>
+
+<br/>
+

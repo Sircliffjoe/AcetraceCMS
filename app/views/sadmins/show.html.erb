@@ -1,0 +1,176 @@
+<% provide( :title, @user.full_name) %>
+
+<%if current_user.sadmin?%>
+     <h1 class="title1">Profile Info</h1>
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">  <%= @user.first_name.capitalize if @user.first_name %> <%= @user.last_name.capitalize if @user.last_name %></h3> </div> <div class="panel-body">
+
+<div class="col-md-4 widget widget1 panel-grids">
+          
+
+ <div class="row">
+  
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+          <div class="profile-userpic">
+       <%if @user.avatars?%>
+        <%= image_tag(@user.avatars_url) %>
+
+        <%else%>
+
+        <img src="../assets/fallback/default.png"/>
+        <%end%>
+
+        </div>
+           <%= @user.first_name.capitalize if @user.first_name %> <%= @user.last_name.capitalize if @user.last_name %>
+          </div>
+          <div class="profile-usertitle-job">
+           <%= @user.type %>
+
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <center><button type="button" class="btn btn-success btn-sm">Acetracecms</button></center>
+          
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+             <%if current_user == @user%>
+              <%= link_to edit_user_registration_path(@user) do%> <i class="fa fa-user"></i>Account Settings<%end%>
+              <%end%>
+            </li>
+            
+
+            </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+
+    </div>
+   
+    </div>
+    <div class="col-md-6 widget widget1">
+            <div class="r3_counter_box">
+            <div class="profile-content">
+         <table class="table">
+
+        <tbody>
+
+
+<tr>
+
+<%if @user.phone_number%>
+<td>
+  <strong>Phone:</strong>
+  <%= @user.phone_number %>
+</td></tr>
+<tr>
+<%end%>
+<%if @user.email%>
+<td>
+  <strong>Email:</strong>
+  <%= @user.email%>
+</td></tr>
+<tr>
+<%end%>
+<%if @user.address%>
+<td>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</td></tr>
+<tr>
+<%end%>
+
+<%if @user.birthday%>
+<td>
+  <strong>Birthday:</strong>
+  <%= @user.birthday %>
+</td></tr>
+<tr>
+<%end%>
+
+<%if @user.city%>
+<td>
+  <strong>Location:</strong>
+  <%= @user.city %>
+</td></tr>
+<tr>
+<%end%>
+<%if @user.state%>
+<td>
+  <strong>State:</strong>
+  <%= @user.state%>
+</td></tr>
+<tr>
+<%end%>
+
+
+
+         
+          <tr>
+          <td>
+          <%= link_to 'Edit', edit_sadmin_path(@user), class:"btn btn-success" %> 
+          </td>
+          </tr>
+
+
+          <%else%>
+
+<h5 style="color:red;">Your are not authorized  to view this page</h5>
+
+ <%end%>
+
+           <tr>
+          <td>
+          <%= link_to 'Back to Dashboard', root_url, class:"btn btn-info" %>
+          </td>
+          </tr>
+           <tr>
+          <td>
+          <%= link_to "Back", :back, class:"btn btn-warning"%> 
+          </td>
+          </tr>
+          </tbody>
+          </table>
+
+
+ 
+
+<br/>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<br>
+<br>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+

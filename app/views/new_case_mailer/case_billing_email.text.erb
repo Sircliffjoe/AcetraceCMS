@@ -1,0 +1,36 @@
+Hello, <%= @user.first_name %>
+    <%if @user.type == "Admin" %>
+
+     
+      Legal Case Billing has been posted on a Case in your Lawfirm <%= @user.lawfirm.name %> . The details are below:
+
+      Caseno:<%= @mycase.caseNo %>
+      Subject:<%= @mycase.subject %>
+
+<%if @billing.cost %>
+Billing Cost: <%= @billing.cost %>
+<%end%>
+<%if @billing.description  %>
+Billing discription: <%= @billing.description %>
+<%end%>
+Poster: <%= @billing.poster_type %>
+
+      We are glad to serve you.
+Acetrace-CMS Team 
+    <%else%>
+
+      Legal Case Billing has been posted on a Case in <%= @user.lawfirm.name %> Lawfirm. The details are below: Caseno: <%= @mycase.caseNo %>
+      Subject: <%= @mycase.subject %>
+
+<%if @billing.cost %>
+Billing Cost: <%= @billing.cost %>
+<%end%>
+<%if @billing.description  %>
+Billing discription: <%= @billing.description %>
+<%end%>
+Poster: <%= @billing.poster_type %>
+
+     Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+Acetrace-CMS Team 
+  <%end%>

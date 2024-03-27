@@ -1,0 +1,168 @@
+
+
+
+   <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                               
+                
+<div>
+<%= form_with(model: mycase, local: true) do |form| %>
+  <% if mycase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mycase.errors.count, "error") %> prohibited this mycase from being saved:</h2>
+
+      <ul>
+      <% mycase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h2>Client Data</h2>
+ <div class="row">
+
+  
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, id: :mycase_company_name, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+
+  <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :rc %>
+    <%= form.text_field :rc, id: :mycase_rc, type:"text",  class:"form-control"%>
+    </div></div>
+      <div class="col-md-6">
+       <div class="form-group">
+    <%= form.label :rep_first, "Representative First name" %>
+    <%= form.text_field :rep_first, id: :mycase_rep_first, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+
+  <div class="col-md-6">
+     <div class="form-group">
+    <%= form.label :rep_last, "Representative Last name" %>
+    <%= form.text_field :rep_last, id: :mycase_rep_last, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+
+  <div class="col-md-6">
+     <div class="form-group">
+    <%= form.label :entity %>
+    <%= form.text_field :entity, id: :mycase_entity, value: "Company", type:"text", readonly: true, required:"required", class:"form-control"%>
+    </div></div>
+
+  <div class="col-md-6">
+     <div class="form-group">
+    <%= form.label :company_spec, "Company Specialty(Sector)" %>
+    <%= form.text_field :company_spec, id: :mycase_company_spec, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+
+</div>
+
+ <div class="row">
+<h2>Case Details</h2>
+<br/>
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :subject %>
+    <%= form.text_field :subject, id: :mycase_subject, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+ 
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :area_of_practice %>
+    <%= form.text_field :area_of_practice, id: :mycase_area_of_practice, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+ 
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :opponents %>
+    <%= form.text_area :opponents, id: :mycase_opponents, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+  
+  <div class="col-md-6"> 
+
+
+  <div class="form-group">
+    <%= form.label :caseNo, "Generated CaseID" %>
+  <%= form.text_field :caseNo, id: :mycase_caseNo,  value: generate_caseNo, readonly: true,  class:"form-control"%>
+  </div>
+ </div>
+  
+
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :assigned_attorney %>
+    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, type:"text", class:"form-control"%>
+    </div></div>
+  
+
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :arrival_date, "Case Arrival date" %>
+    <%= form.date_field :arrival_date, id: :mycase_arrival_date,  required:"required", class:"form-control"%>
+    </div></div>
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :due_date, "Case Due date" %>
+     
+    <%= form.date_field :due_date, id: :mycase_due_date, autofocus: true,  required:"required", class:"form-control"%>
+    </div>
+    </div>
+
+
+
+
+ <%if current_user.admin?%>
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :add_judge %>
+    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text",  class:"form-control"%>
+    </div>
+ </div>
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :add_court %>
+    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", class:"form-control"%>
+    </div></div>
+
+ 
+  
+<%end%>
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :summary_of_brief %>
+    <%= form.text_area :summary_of_brief, id: :mycase_summary_of_brief, type:"text", required:"required", style:"height:100px;", class:"form-control"%>
+    </div>
+  </div>
+  
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :client_id, "Add Client" %>
+    <%= form.select :client_id,  @clients.map{|client|[(client.first_name+" "+client.last_name), client.id]}, include_blank: true, id: "index_of_the_client_id_select_box", class:"form-control"%>
+   </div>
+ </div>
+
+
+
+<div class="form-actions"> 
+    <%= form.submit "Create Case", class: "btn btn-info" %> |  <%= link_to "Back", :back, class:"btn btn-warning"%> 
+  </div>
+<% end %>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+

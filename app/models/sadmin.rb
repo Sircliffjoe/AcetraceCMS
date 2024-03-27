@@ -1,0 +1,3 @@
+class Sadmin < User
+
+end

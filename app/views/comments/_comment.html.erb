@@ -1,0 +1,29 @@
+<table class="table">
+<tbody>
+<%if comment%>
+
+
+<tr>
+<td style="width:50px;">
+  <p class="comment_content"><%= comment.content%></p>
+   
+<%if comment.commenter.avatars?%>
+                                                <span class="prfil-img"><%= image_tag comment.commenter.avatars_url, width: 60, height: 50 %></span>
+<%end%>
+                                            </span>
+
+
+ <p class="comment_author"><%= comment.commenter.first_name%> <%= comment.commenter.last_name%> <small><%=time_ago_in_words(comment.created_at)%></small>
+  
+
+ <%= link_to edit_post_comment_path(comment.post, comment)do%><i onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-edit"></i><%end%>
+ 
+ <%= link_to "del", [comment.post, comment], method: :delete, data: {confirm: "Are you really sure to delete this Reply?"}%><i onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" style="font-size:27px"class="fa fa-trash"></i>
+
+
+ <%end%>
+
+                                         </td></tr></tbody></table>
+

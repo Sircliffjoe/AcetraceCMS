@@ -1,0 +1,53 @@
+  Hello, <%= @user.first_name %>
+
+  An Attorney has been assigned to your Legal Case at <%= @user.lawfirm.name %>. The details are below:
+                     
+ Caseno:
+ <%= @mycase.caseNo %>
+
+ Subject:
+<%= @mycase.subject %>
+
+
+ Opponents:
+ <%= @mycase.opponents %>
+
+
+
+  <% if @mycase.users.any?%>
+  Case Attorneys
+  
+
+        
+           <% @mycase.users.each do |user| %>
+
+                                                <%= user.full_name %>    
+
+
+<%end%>
+
+                                     
+
+           <%else%>
+There are no Attorneys assigned to this Case yet!
+<%end%>
+
+ Arrival date:
+ <%= @mycase.arrival_date %>
+
+
+
+ Due date:
+ <%= @mycase.due_date %>
+
+
+
+
+ Status:<%= @mycase.status %>
+
+
+
+      Please log into your Acetrace-CMS. with your e-mail: <%= @user.email %>
+      to follow up.
+
+      Acetrace-CMS Team 

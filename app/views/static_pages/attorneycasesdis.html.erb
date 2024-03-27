@@ -1,0 +1,86 @@
+  <% provide( :title, "Attorney cases") %>
+
+<h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;"> Attorney Cases Discussion</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
+
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
+
+<div class="col-md-12">
+            <div class="card">
+              
+
+
+<div class="card-body card-body">
+
+
+<% if current_user.mycases.any? %>
+
+<div class="card-header">
+                <h5 class="card-title"><strong>Legal Cases</strong></h5>
+
+              </div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Caseno</th>
+      <th>Client name</th>
+      <th>Subject</th>
+      <th>Arrival Date</th>
+      <th>Due Date</th>
+       <th>Lawfirm</th>
+      <th>Show</th>
+      <th>Update</th>
+      
+     
+     
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.mycases.each do |mycase| %>
+      <tr>
+        <td><%= mycase.caseNo %></td>
+        <td><%= mycase.client_name %></td>
+        <td><%= mycase.subject %></td>
+        
+        <td><%= mycase.arrival_date %></td>
+        <td><%= mycase.due_date %></td>
+       
+     <td><%= link_to current_user.lawfirm.name, lawfirm_path(current_user.lawfirm.id) %></td>       
+        <td><%= link_to 'Show', mycase %></td>
+        <td>
+<%= link_to 'Discussions', meet_mycase_path(mycase) , class:'btn btn-info'%> 
+</td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%else%>
+<h5>There are no cases associated to you as an attorney yet!</h5>
+<%end%>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+

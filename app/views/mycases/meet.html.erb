@@ -1,0 +1,73 @@
+ <% provide( :title, @mycase.caseNo) %>
+
+
+    <h2 class="title1" style="background-color:#edeff2; font-size:30px; color:orange;"> Case Discussions - <%=@mycase.subject%></h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+
+</div>
+
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> Details</h3> </div> <div class="panel-body">
+        <br />
+
+
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Recent Comments</h4>
+                               <div class="chat-box">
+                                    <!--chat Row -->
+                                    <ul class="chat-list">
+                                        <!--chat Row -->
+                                       
+                                        <!--chat Row -->
+                               
+<% if @mycase.mycasecomments.any? %>
+<%= pluralize @mycase.mycasecomments.size,'Comment' %> so far
+<% else %>
+Be the first to post discussion
+<% end %>
+<%= render :partial =>'mycasecomments/mycasecomment',
+:collection => @mycase.mycasecomments  %>
+
+     </ul>
+                                </div>
+                            </div>  
+
+                        
+ 		
+		<h4>Post Discussion</h4>
+
+              
+ <%= form_for([@mycase, @mycase.mycasecomments.build], html: { multipart: true }) do |f| %>
+  
+	
+    <%= f.text_area :content, placeholder: "Add discussion",class:"publisher-input", class:"form-control b-0"%>
+     
+     
+
+    <%= f.file_field :attachment , class:"publisher-btn file-group" do %>
+    <i class="fa fa-paperclip file-browser"></i>
+
+	<%= f.hidden_field :attachment_cache %>
+	 <% end %>
+<div class="col-4 text-right">
+
+
+ <i class="fa fa-paper-plane-o"></i>
+
+  <%= f.submit "send", class:"btn btn-info btn-circle btn-lg"%>
+   
+  </div>
+  <% end %>
+
+	</div>
+	
+</div>
+	</div>
+  </div>
+  </div>
+  </div>
+  </div>

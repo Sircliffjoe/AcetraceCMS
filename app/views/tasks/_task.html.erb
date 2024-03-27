@@ -1,0 +1,49 @@
+
+ 
+
+                                    <%if task%> 
+                                     <%if task.id != nil %>
+
+                                    <li class="list-group-item" data-role="task">
+                                            <div class="checkbox checkbox-info">
+                                                <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule">
+                                                <label for="inputSchedule" class=""> <span style="float:left; color:blue;"><%= task.message %></span> </label>
+<%if task.document?%>
+<i class="fa fa-file"></i><span class="label label-info"><%= link_to "download task file", download_file_task_path(task), data: "task_file", class: "btn-info" %></span> </label>  
+<%end%>
+
+
+                                                <span class="label label-warning"><%= link_to "delete", [task], method: :delete, data: {confirm: "Are you sure"}, class: "btn-warning"%></span> </label>
+
+                                             
+                                         <ul class="assignedto" style="float:right; color:green;">
+                                            <h6>Assigned To:</h6>
+   <%if task.taskter%>                                              <li>
+ <%if task.taskter.avatars?%>
+         <span class="prfil-img"><%= image_tag task.taskter.avatars_url, style:"width:50px;" %></span>
+<%end%>
+<%=task.taskter.first_name%> <%=task.taskter.last_name%>
+<%end%>
+</li>
+                                            </ul>
+
+
+  <div class="item-date"> <%=time_ago_in_words(task.created_at) if task.created_at? %></div>
+                  
+                   
+                
+
+                   
+
+                                           
+                                        </li>
+                                        <%end%>
+                   
+
+   <%end%>
+
+  
+
+
+
+

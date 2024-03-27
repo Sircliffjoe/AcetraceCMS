@@ -1,0 +1,76 @@
+
+
+  <aside class="sidebar-left">
+      <nav class="navbar navbar-inverse">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <h1><a class="navbar-brand" href="/"><span class="fa fa-area-chart"></span>Acetrace<span class="dashboard_text">Attorneys's Dashboard</span></a></h1>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="sidebar-menu">
+              <li class="header">MAIN NAVIGATION</li>
+              <li class="treeview">
+                <a href="/">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                </a>
+              </li>
+     
+
+               <li class="treeview"><a href="/attorney-legalcases-repo">
+                 <i class="fa fa-file"></i>
+                <span>Case Files</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
+
+
+               <li class="treeview"><a href="/attorney-legalcases-tasks">
+                 <i class="fa fa-file"></i>
+                <span>Case Tasks</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
+
+               <li class="treeview"><a href="/attorney-legalcases-discussion">
+                 <i class="fa fa-file"></i>
+                <span>Case Discussions</span>
+                <i class="fa fa-angle-left pull-right"></i>
+               </a>
+   </li>
+
+    <li class="treeview">
+                <a href="/Acetrace-Forum-Post">
+                <i class="fa fa-envelope"></i> <span>Forum </span>
+                <i class="fa fa-angle-left pull-right"></i><small class="label pull-right label-info1">post</small><span class="label label-primary1 pull-right">new</span></a>
+                   
+                <ul class="treeview-menu">
+                  <li><a href="/Acetrace-Forum-Post"><i class="fa fa-angle-right"></i>View Posts </a></li>
+                 
+                </ul>
+              </li>
+ 
+      
+
+                <li class="treeview">
+
+                <%= link_to destroy_user_session_path, method: :delete do%> 
+  
+                  <i class="fa fa-sign-out"></i> <span>Logout</span>
+                <i class="fa fa-angle-left pull-right"></i>
+                <%end%>
+
+              </li>
+
+
+                         </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </nav>
+    </aside>
+  
+

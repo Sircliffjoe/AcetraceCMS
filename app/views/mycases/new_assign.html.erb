@@ -1,0 +1,193 @@
+  
+  <% provide( :title, @mycase.caseNo) %>
+
+<div class="col-md-12 panel-grids">
+</div>
+ 
+<%if current_user.admin?%>
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title"> <%= @mycase.caseNo %> </h3> </div> <div class="panel-body">
+
+           
+ <div class="col-md-12 col-lg-12 d-none d-lg-block">
+            <div class="card">
+              
+
+
+
+<div class="card-body card-body">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Client name:</strong></td>
+  <td><%= @mycase.client_name %></td>
+</tr>
+
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+
+</tr>
+
+ <tr>
+  <td><strong>Status:</strong></td>
+  <td><%= @mycase.status %></td>
+
+
+</tbody>
+</table>
+ <div class="row">
+
+   <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                                
+
+                <div class="row">
+<div>
+<%= form_for(@mycase, url:assign_attorney_mycase_path(@mycase)) do |form| %>
+  <% if @mycase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mycase.errors.count, "error") %> prohibited this mycase from being saved:</h2>
+
+      <ul>
+      <% @mycase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+ 
+<div class="col-md-6"> 
+
+
+  <div class="form-group">
+    <%= form.label :caseNo, "Generated CaseID (This is a standard naming convention from your lawfirm Initials)" %>
+  <%= form.text_field :caseNo, id: :mycase_caseNo, readonly: true, style:"height:50px;", class:"form-control"%>
+  </div>
+ </div>
+  
+  
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :client_name %>
+    <%= form.text_field :client_name, id: :mycase_client_name, type:"text", required:"required", class:"form-control"%>
+    </div</div>
+
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :subject %>
+    <%= form.text_field :subject, id: :mycase_subject, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+ 
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :area_of_practice %>
+    <%= form.text_field :area_of_practice, id: :mycase_area_of_practice, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+ 
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :opponents %>
+    <%= form.text_area :opponents, id: :mycase_opponents, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+  
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :assigned_attorney %>
+    <%= form.text_field :assigned_attorney, id: :mycase_assigned_attorney, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+  
+
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :arrival_date, "Case Arrival date" %>
+    <%= form.date_field :arrival_date, id: :mycase_arrival_date, class:"form-control"%>
+    </div></div>
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :due_date, "Case Due date" %>
+     
+    <%= form.date_field :due_date, id: :mycase_due_date, autofocus: true, class:"form-control"%>
+    </div>
+    </div>
+
+
+ <%if current_user.admin?%>
+
+<div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :add_judge %>
+    <%= form.text_field :add_judge, id: :mycase_add_judge, type:"text", required:"required", class:"form-control"%>
+    </div>
+ </div>
+
+ <div class="col-md-6">
+   <div class="form-group">
+    <%= form.label :add_court %>
+    <%= form.text_field :add_court, id: :mycase_add_court, type:"text", required:"required", class:"form-control"%>
+    </div></div>
+
+     <div class="col-md-6">
+   <div class="form-group">
+
+
+<label for="users"><strong>Assign Attorneys</strong></label>
+<div class="custom-select form-control pull-right">
+  <%= form.collection_check_boxes(:user_ids, @attorneys, :id, :first_name, checked: @mycase.users.map(&:id)) do |b| %>    
+    <%= b.check_box %> <%= b.label %>
+  <% end %>
+</div>
+
+
+
+</div></div>
+  
+<%end%>
+
+
+
+
+
+<div class="form-actions"> 
+    <%= form.submit "Save Case", class: "btn btn-info" %>
+  </div>
+<% end %>
+</p>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+</div>
+</div>
+
+
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>
+
+</div>
+</div>
+</div>
+</div>
+
+  <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+</div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1>Hello, <%= @user.first_name %></h1>
+    <%if @user.type == "Admin" %>
+
+     <p>
+      Legal Case <b style="color:orange;">Billing</b> posted on a Case in your Lawfirm <em><b style="color:orange;"><%= @user.lawfirm.name %> </b></em>. Has been <em><b style="color:orange;">approved.</b></em> <em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+ 
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+
+
+
+<br/>
+      We are glad to serve you.
+<br/>
+<br/>
+ <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+    <%else%>
+
+     
+     <p>
+      Legal Case <b style="color:orange;">Billing</b>posted on a Case in <em><b style="color:orange;"><%= @user.lawfirm.name %> Lawfirm </b></em>. Has been <em><b style="color:orange;">approved.</b></em> <em><b>The details are below:</b></em><br/>
+        <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Caseno:</strong></td>
+  <td><%= @mycase.caseNo %></td>
+</tr>
+ <tr>
+<td>
+ 
+ <tr>
+  <td><strong>Subject:</strong></td>
+ <td><%= @mycase.subject %></td>
+</tr>
+
+</tbody>
+</table>
+
+<br/>
+
+
+<br/>
+     Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+<br/>
+<br/>
+ <p style="float:left; color:blue;">Acetrace-CMS Team </p>
+    </p>
+
+
+  <%end%>
+  </body>
+</html>

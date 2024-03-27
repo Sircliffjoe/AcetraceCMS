@@ -1,0 +1,93 @@
+<% provide( :title, "Lawfirm Cases") %>
+
+<%if current_user.admin? || current_user.adminassistant?%>
+
+
+    
+ <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Asign Attorney to Cases</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">All cases</h3> </div> <div class="panel-body">              
+                            </div>
+
+<% if @lawfirm_cases.any? %>
+
+<div class="card-header">
+                <h5 class="card-title"><strong>Legal Cases</strong></h5>
+
+              </div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Case No</th>
+      <th>Client name</th>
+      <th>Subject</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>action</th>
+     
+     
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lawfirm_cases.each do |mycase| %>
+      <tr>
+        <td><%= mycase.caseNo %></td>
+        <td><%= mycase.client_name %></td>
+        <td><%= mycase.subject %></td>
+        
+        <td><%= mycase.status %></td>
+        <td><%= mycase.due_date %></td>
+       
+    
+        
+    <%if current_user.admin?%>
+       
+<td>
+
+  <a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/legal-case/<%=mycase.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+     
+
+        
+
+  <%= link_to 'Assign Attorney', new_assign_mycase_path(mycase), class:'btn btn-warning' %>
+
+
+       </td>
+      </tr>
+    <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+<%else%>
+<h5>There are no cases created on this lawfirm yet!</h5>
+<%end%>
+
+
+  <a class="btn btn-success" href="/legalcase-new-entry" target="_blank">Add New Case</a>
+ <%= link_to 'Back to Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 
+</div>
+</div>
+</div>
+
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>

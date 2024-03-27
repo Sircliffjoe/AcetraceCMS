@@ -1,0 +1,304 @@
+Hello, <%= @user.first_name %>
+
+      A new Legal Case has been created in your Lawfirm <%= @user.lawfirm.name %>.The details are below:
+   <%if @user.type == "Admin" %>    
+ Caseno:
+ <%= @mycase.caseNo %>
+
+  Entity:
+ <%= @mycase.entity %>
+
+
+<%if @mycase.f_name %>
+
+  Client First Name:
+ <%= @mycase.f_name %>
+
+<%end%>
+
+<%if @mycase.l_name %>
+
+  Client Last Name:
+ <%= @mycase.l_name %>
+
+<%end%>
+
+<%if @mycase.company_name %>
+
+  Company Name:
+ <%= @mycase.company_name %>
+
+<%end%>
+
+<%if @mycase.rc %>
+
+  Company RC No:
+ <%= @mycase.rc %>
+
+<%end%>
+
+
+<%if @mycase.rep_first %>
+
+  Representative First Name:
+ <%= @mycase.rep_first %>
+
+<%end%>
+
+
+<%if @mycase.rep_last %>
+
+  Representative Last Name:
+ <%= @mycase.rep_last %>
+
+<%end%>
+
+<%if @mycase.company_spec %>
+
+  Company Sector(Specialization):
+ <%= @mycase.company_spec %>
+
+<%end%>
+
+
+ Subject:
+<%= @mycase.subject %>
+
+
+
+ Area of practice:
+ <%= @mycase.area_of_practice %>
+
+
+
+ Opponents:
+ <%= @mycase.opponents %>
+
+
+
+
+ Arrival date:
+ <%= @mycase.arrival_date %>
+
+
+
+ Due date:
+ <%= @mycase.due_date %>
+
+
+ Status:
+<%= @mycase.status %>
+
+Please login to your account to see update.
+      We are glad to serve you.
+
+      Acetrace-CMS Team 
+
+    <%elsif @user.type == "Attorney"%>
+
+
+
+      You have been asigned as an Attorney in a Legal created at <%= @mycase.lawfirm.name %> Lawfirm. The details are below:
+                     
+ Caseno:
+ <%= @mycase.caseNo %>
+
+
+
+  Entity:
+ <%= @mycase.entity %>
+
+
+<%if @mycase.f_name %>
+
+  Client First Name:
+ <%= @mycase.f_name %>
+
+<%end%>
+
+<%if @mycase.l_name %>
+
+  Client Last Name:
+ <%= @mycase.l_name %>
+
+<%end%>
+
+<%if @mycase.company_name %>
+
+  Company Name:
+ <%= @mycase.company_name %>
+
+<%end%>
+
+<%if @mycase.rc %>
+
+  Company RC No:
+ <%= @mycase.rc %>
+
+<%end%>
+
+
+<%if @mycase.rep_first %>
+
+  Representative First Name:
+ <%= @mycase.rep_first %>
+
+<%end%>
+
+
+<%if @mycase.rep_last %>
+
+  Representative Last Name:
+ <%= @mycase.rep_last %>
+
+<%end%>
+
+<%if @mycase.company_spec %>
+
+  Company Sector(Specialization):
+ <%= @mycase.company_spec %>
+
+<%end%>
+
+
+ Subject:
+<%= @mycase.subject %>
+
+
+
+ Area of practice:
+ <%= @mycase.area_of_practice %>
+
+
+
+ Opponents:
+ <%= @mycase.opponents %>
+
+
+
+ Arrival date:
+ <%= @mycase.arrival_date %>
+
+
+
+ Due date:
+ <%= @mycase.due_date %>
+
+
+
+
+ Status:
+ <%= @mycase.status %>
+
+
+
+      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+
+      Acetrace-CMS Team 
+
+
+
+
+
+    <%else%>
+ 
+      Your Legal Case Iniatition at <%=@mycase.lawfirm.name%> has been completed at. See Details Below:
+                     
+ Caseno:
+ <%= @mycase.caseNo %>
+
+
+
+  Entity:
+ <%= @mycase.entity %>
+
+
+<%if @mycase.f_name %>
+
+  Client First Name:
+ <%= @mycase.f_name %>
+
+<%end%>
+
+<%if @mycase.l_name %>
+
+  Client Last Name:
+ <%= @mycase.l_name %>
+
+<%end%>
+
+<%if @mycase.company_name %>
+
+  Company Name:
+ <%= @mycase.company_name %>
+
+<%end%>
+
+<%if @mycase.rc %>
+
+  Company RC No:
+ <%= @mycase.rc %>
+
+<%end%>
+
+
+<%if @mycase.rep_first %>
+
+  Representative First Name:
+ <%= @mycase.rep_first %>
+
+<%end%>
+
+
+<%if @mycase.rep_last %>
+
+  Representative Last Name:
+ <%= @mycase.rep_last %>
+
+<%end%>
+
+<%if @mycase.company_spec %>
+
+  Company Sector(Specialization):
+ <%= @mycase.company_spec %>
+
+<%end%>
+
+
+ Subject:
+<%= @mycase.subject %>
+
+
+
+ Area of practice:
+ <%= @mycase.area_of_practice %>
+
+
+
+ Opponents:
+ <%= @mycase.opponents %>
+
+
+
+ Arrival date:
+ <%= @mycase.arrival_date %>
+
+
+
+ Due date:
+ <%= @mycase.due_date %>
+
+
+
+
+ Status:<%= @mycase.status %>
+
+
+
+      Please log into your Acetrace-CMS account. with your e-mail: <%= @user.email %>
+      to follow up.
+
+      Acetrace-CMS Team 
+
+  <%end%>

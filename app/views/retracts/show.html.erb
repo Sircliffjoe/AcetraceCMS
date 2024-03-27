@@ -1,0 +1,86 @@
+  
+  <% provide( :title, "Transaction Data") %>
+
+
+
+
+      <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor">Transaction Response</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+                <div>
+                    <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+ <div class="col-md-8 col-lg-8 d-none d-lg-block">
+            <div class="card">
+              
+
+
+<div class="card-body card-body">
+              <div class="card-header">
+            
+                <h5 class="card-title"><strong>Status - <%= @res['status'] %></strong></h5>
+                  <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Lawfirm Email - <%= @customer['email'] %></div>
+                </div>
+              </div>
+ 
+
+<div class="card-body card-body">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+ <td> <strong>Reference:</strong></td>
+  <td><%= @res['reference'] %></td>
+</tr>
+ <tr>
+<td>
+  <strong>Aount:</strong></td>
+  <td><%= @res['amount'] %></td>
+</tr>
+
+ <tr>
+  <td><strong>Channel:</strong></td>
+ <td><%= @res['channel'] %></td>
+</tr>
+
+ <tr>
+  <td><strong>Gateway Response:</strong></td>
+  <td><%= @res['gateway_response'] %></td>
+
+
+</tr>
+
+ <tr>
+  <td><strong>Currency:</strong></td>
+ <td><%= @res['currency'] %></td>
+</tr>
+
+ <tr>
+  <td><strong>IP Address:</strong></td>
+  <td><%= @res['ip_address'] %></td>
+</tr>
+
+ 
+
+
+
+</div>
+</div>
+ <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+
+<%= link_to "Back", :back, class:"btn btn-warning"%> 

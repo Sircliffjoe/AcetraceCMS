@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @user.first_name %></h1>
+    <%if @user.type == "Admin" %>
+
+     <p>
+      Welcome to Acetrace-CMS you have just created an Admin's account  in Acetrace-CMS.<br/>
+      Please Make Sure you set up your lawfirm to continue to use our platform.<br/>
+      We are glad to have you.
+<br/>
+<br/>
+      Acetrace-CMS Team 
+    </p>
+
+    <%else%>
+    <p>
+      Welcome to Acetrace-CMS your <%= @user.type %>'s account  has been created in <%= @user.lawfirm.name%> Lawfirm.<br/>
+      We are glad to have you in our platform. 
+<br/>
+<br/>
+      Acetrace-CMS Team 
+
+    </p>
+  <%end%>
+  </body>
+</html>

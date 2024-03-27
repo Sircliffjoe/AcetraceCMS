@@ -1,0 +1,103 @@
+<% provide( :title, "Active Lawfirms") %>
+
+<%if current_user.sadmin?%>
+
+
+    
+ <h2 class="title1" style="background-color:#edeff2;height: 50px; font-size:40px; color:orange;">Subscribed Lawfirms</h2>
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+    
+</div>
+    
+<div class="col-md-12 panel-grids">
+<div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">active lawfirms</h3> </div> <div class="panel-body">              
+                            </div>
+
+                            <%if @lawfirms.any?%>
+                            <div class="bg-light p-20">
+                                <div class="d-flex">
+                                    <div class="align-self-center">
+                                        <h3 class="m-b-0">Acetracecms</h3><small>Subscribed Lawfirms</small></div>
+                                    <div class="ml-auto align-self-center">
+                                        <h2 class="text-success"></h2></div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table style="font-size:16px;" class="table table-hover earning-box">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Name</th>
+                                                <th></th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+ <% @lawfirms.each do |lawfirm| %>
+            <%unless lawfirm.name == "Acetracecms"%>
+            
+
+                                            <tr>
+                                                <td style="width:50px;">
+<%if lawfirm.logos?%>
+                                                <span class="round"><%= image_tag lawfirm.logos_url, style:"width:50px;" %>
+<%end%>
+                                            </span></td>
+                                                <td>
+                                                    <h6><%= lawfirm.name %></h6><small class="text-muted"><%= lawfirm.phone_number %></small></td>
+                                                <td> 
+
+
+
+
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/L3D7ZLU9SEMWM0R7F8O906ILVU5WY91WV4MUJJKSTM774ONCMBTNVTMNJJHSQKH80OCASGF3F0S-acetrace-lawfirms-repo/<%=lawfirm.id%>">
+        <i style="font-size:27px"class="fa fa-eye"></i>
+
+        </a>
+
+
+
+              </td>
+                                                <td><%= lawfirm.email %></td>
+                                            </tr>
+                                                       <%end%>
+
+
+<%end%>
+
+                                        </tbody>
+                                    </table>
+                                    <%= will_paginate @lawfirms, :renderer => BootstrapPagination::Rails %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+</div>
+</div>
+<%else%>
+
+<h5 style="color:red;">No active lawfirm at the moment!</h5>
+<br/>
+
+ <%end%>
+
+ 
+<%= link_to 'Back to Dashboard', root_url, class:"btn btn-info" %>
+<%= link_to "Back", :back, class:"btn btn-warning"%>
+
+
+
+
+
+
+<%else%>
+
+<h5>Your are not authorized  to view this page</h5>
+
+ <%end%>
+
+
+
+     

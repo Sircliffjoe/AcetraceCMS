@@ -1,0 +1,12 @@
+<%= form_for([@mycase, @mycase.mycasecomments.build]) do |form| %>
+  
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :mycasecomment_content, required="required" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add Discussion", class: "btn btn-primary" %>
+  </div>
+<% end %>
+

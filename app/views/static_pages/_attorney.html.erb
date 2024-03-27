@@ -1,0 +1,217 @@
+
+<% provide( :title, "Dashboard") %>
+
+
+      <div class="col_3">
+      <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-gift user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=attorneycases%></strong></h5>
+                      <span>Attorney Cases</span>
+                    </div>
+                </div>
+          </div>
+          
+          <div class="col-md-3 widget">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@aopen%></strong></h5>
+                      <span>Cases Opened</span>
+                    </div>
+                </div>
+           </div>
+
+           <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-edit user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@ainview%></strong></h5>
+                      <span>Cases Inview</span>
+                    </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong><%=@acompleted%></strong></h5>
+                      <span>Cases Completed</span>
+                    </div>
+                </div>
+          </div>
+
+          
+          <div class="clearfix"> </div>
+    </div>
+    <br/>
+     
+
+                 <div class="col_3">
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a style="color:orange;" href="/attorney-legalcases-tasks" target="_blank">
+                   <h5 style="color:orange;" class="w-60px"><i style="color:orange;" class="fa fa-legal"></i>View Case Tasks</h5>
+                </a>
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+               
+               <a style="color:orange;" href="/attorney-legalcases-repo">
+                 <h5 style="color:orange;" class="w-60px"><i class="fa fa-user"></i> Update Case Status
+                 </h5>
+                  
+                  
+                </a>
+  </div>
+                </div>
+          </div>
+          <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                    <div class="stats">
+                <a class="actions" href="/attorney-legalcases-discussion">
+                  <h5 style="color:orange;" class="w-60px"><i class="fa fa-tag"></i>
+                    View Case Discusions
+                    </h5>
+                </a>
+  </div>
+                </div>
+          </div>
+          
+             <div class="clearfix"> </div>
+</div>
+         <br/>
+   <div class="clearfix"> </div>
+
+  
+      
+          <div class="clearfix"> </div>
+        </div>
+                       
+   <div class="charts">
+          
+          
+          <div class="charts-grids widget states-mdl">
+            <div class="card-header">
+            </div>
+            <div class="demo-placeholder">
+               <h3 class="box-title">
+              <i class="fa fa-calendar"></i>Cases Calendar</h3>
+             
+
+ <%=  month_calendar  events:  current_user.mycases do |date, meetings| %>
+
+
+             
+             <div class="media-body">
+                    <%= date.day%>
+                    <% meetings.each do |meeting| %>
+                    <small class="text-fader"><i class="fa fa-gift"></i> <%= meeting.subject.to_s %></small>
+                  </div>
+                  <% end %>
+<% end %>
+
+                
+
+            </div>
+   </div>
+          </div>
+
+
+
+<div class="col-md-12 panel-grids">
+</div>
+ 
+            <div class="panel panel-info"> <div class="panel-heading"> <h3 class="panel-title">Cases Associated to you! </h3> </div> <div class="panel-body">
+
+          
+
+ <div class="row">
+<div class="col-md-12 col-lg-12 d-none d-lg-block">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title"><strong>Case Panel</strong></h5>
+                <div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">Cases Associated to You</div>
+                </div>
+              </div>
+
+
+<div class="card-body card-body">
+                
+
+
+
+ <% if current_user.mycases.any?%>
+
+ <h5><strong><%= pluralize(current_user.mycases.count, "Case") %> Associated.
+
+  </strong><h5/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Caseno</th>
+     
+      <th>Subject</th>
+      
+     
+      <th>Due date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%current_user.mycases.each do |mycase| %>
+  <tr>
+         
+        <td><%= mycase.caseNo %></td>
+    
+        <td><%= mycase.subject %></td>
+       
+       
+        <td><%= mycase.due_date %></td>
+        <td><%= mycase.status %></td>
+    
+        <td><%= link_to 'Show', mycase_path(mycase) %></td>
+        <td> <%if @user.tasks.any?%>
+       <%if @user.tasks == mycase.tasks%>
+    
+       
+                  
+              
+           <td><%= link_to 'see tasks', casetask_mycase_path(mycase.id) %> </td>
+          
+           
+      <%end%>  
+    
+    <%end%> </td>
+   </tr>
+   <%end%>
+  
+  </tbody>
+</table>
+<%else%>
+<div class="text-center py-20">
+                  <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">There are no cases associated to you at the moment</div>
+                </div>
+<%end%>
+               
+              </div>
+</div>
+
+            </div>
+
+
+
+<br/>
+
+<br/>
+
+<br/>
+

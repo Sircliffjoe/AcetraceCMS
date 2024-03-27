@@ -1,0 +1,30 @@
+ <li>
+                                         
+ <div style="float:left; color:blue;">
+ <span class="prfil-img"><%= image_tag mycasecomment.mycasecommenter.avatars_url, style:"width:50px;"%></span></div>
+
+  <div style="float:right; color:blue;">
+<%if mycasecomment%>    
+   <h5><%= mycasecomment.mycasecommenter.full_name %></h5>
+ <div class="box bg-light-info" style="float:right; color:orange;">
+
+	<%= mycasecomment.content %> 
+	</div></div>
+	
+
+    <%if mycasecomment.attachment?%>
+	<%= link_to "get file", download_file_mycasecomment_path(mycasecomment), data: "case_file", class:'btn-info btn-xs' %>
+	<br>
+	<br>
+    <%end%>
+    <div class="chat-time" style="float:right; color:orange;"><%= time_ago_in_words(mycasecomment.created_at)%> ago
+	<%= link_to "delete", [mycasecomment.mycase, mycasecomment], method: :delete, data: {confirm: "Are you sure"}%>
+		
+	 <%end%>
+	</div>
+        <div class="clearfix"> </div>
+ </li>
+	<br>
+
+
+ 

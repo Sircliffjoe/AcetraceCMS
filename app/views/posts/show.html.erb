@@ -1,0 +1,98 @@
+<% provide( :title, @post.title) %>
+<div class="forms">
+        
+          <div class="form-grids row widget-shadow" data-example-id="basic-forms"> 
+            <div class="form-title">
+              <h4>Acetrace-CMS Forum Post</h4>
+            </div>
+
+ <div class="form-body">
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/Acetrace-Forum-Post">
+        <i style="font-size:27px"class="fa fa-group"> <span style="color:blue;" onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='blue'">Back to Forum</span></i>
+        </a>
+
+<center><h1><%=@post.title%></h1></center>
+<center><small style="color:blue;">Post By:  <%= @post.poster.first_name%> <%= @post.poster.last_name%></small></center>
+<center><p class="lead" style="color:orange;">more file upload..? you can still do this in the comments section</p></center>
+</div>
+<br>
+<br>
+<br>
+<%if @post.file?%>
+       <center> <%= image_tag(@post.file_url) %></center>
+
+        <%else%>
+
+      <center>  <img src="../assets/fallback/wood.png"/></center>
+        <%end%>
+
+
+
+<p class="lead">
+ <%= raw @post.body %></p>
+<br>
+<br>
+
+<a onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='#73879C'" href="/Acetrace-Forum-Post">
+        <i style="font-size:27px"class="fa fa-group"> <span style="color:blue;" onMouseOver="this.style.color='orange'"
+   onMouseOut="this.style.color='blue'">Back to Forum</span></i>
+
+        </a>
+<br>
+
+<div class="main-page compose">
+        <div class="col-md-12">
+     <div class="chat-grid widget-shadow">
+   
+
+<% if @post.comments.any? %>
+<p class="lead">Posted Comments</p>
+<%= pluralize @post.comments.size,'Comment' %> so far
+<% else %>
+Be the first to post discussion
+<% end %>
+<%= render :partial =>'comments/comment',
+:collection => @post.comments  %>
+
+
+ <%= render 'comments/form' %> 
+
+           
+  <br/>
+<br/>
+<br/>           
+  
+
+
+    
+
+
+ </div>
+<div class="clearfix"></div>
+      </div>
+
+      <div class="x_content">
+
+    
+
+
+        </div>
+          </div>
+
+ <% if current_user.admin? || @post.poster == current_user %>
+     <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-success" %> |
+
+<%end%>
+</div>
+
+ <br>
+<br>
+<br>
+<%= link_to 'Back to Forum', posts_path, class: "btn btn-primary" %>
+  <%= link_to 'Dashboard', root_path, class:"btn btn-info" %> |
+ 
+   <%= link_to "Back", :back, class:"btn btn-warning"%> 
+    
